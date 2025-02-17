@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Consumption Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Power Consumption Dashboard</h1>
+        <div class="dashboard">
+            <div class="controls">
+                <label for="date-picker">Select Date:</label>
+                <input type="date" id="date-picker">
+                
+                <label for="region">Select Region:</label>
+                <select id="region">
+                    <option value="North">North</option>
+                    <option value="South">South</option>
+                    <option value="East">East</option>
+                    <option value="West">West</option>
+                </select>
+                
+                <label for="time-period">Time Period:</label>
+                <select id="time-period">
+                    <option value="Peak">Peak</option>
+                    <option value="Off-Peak">Off-Peak</option>
+                </select>
+                
+                <button id="add-data">Add Data</button>
+                <button id="download-data">Download Data</button>
+            </div>
+            <div class="summary">
+                <div class="card">
+                    <h3>Total Consumption</h3>
+                    <p id="total-consumption">0 units</p>
+                </div>
+                <div class="card">
+                    <h3>Peak Consumption</h3>
+                    <p id="peak-consumption">0 units</p>
+                </div>
+                <div class="card">
+                    <h3>Off-Peak Consumption</h3>
+                    <p id="off-peak-consumption">0 units</p>
+                </div>
+            </div>
+            <div class="charts">
+                <canvas id="consumption-chart" width="400" height="200"></canvas>
+                <canvas id="region-comparison-chart" width="400" height="200"></canvas>
+            </div>
+            <div id="map" style="height: 500px;"></div> <!-- Map container -->
+            <div class="table-container">
+                <h3>Consumption Data</h3>
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>Select</th>
+                            <th>Date</th>
+                            <th>Region</th>
+                            <th>Time Period</th>
+                            <th>Consumption</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table-body">
+                        <!-- Data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-heat/dist/leaflet-heat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
